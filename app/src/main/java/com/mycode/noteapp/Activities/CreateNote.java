@@ -217,7 +217,7 @@ public class CreateNote extends AppCompatActivity {
         layoutMiscellaneous.findViewById(R.id.viewColor).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectNotecolor="#0A0B0A";
+                selectNotecolor="#4CAF50";
                 imgcolor.setImageResource(R.drawable.ic_donecolor);
                 imgcolor2.setImageResource(0);
                 imgcolor3.setImageResource(0);
@@ -323,10 +323,11 @@ public class CreateNote extends AppCompatActivity {
         //delete note
        if (availableNote != null){
            layoutMiscellaneous.findViewById(R.id.layoutDeleteNote).setVisibility(View.VISIBLE);
-           layoutMiscellaneous.findViewById(R.id.deletenote).setOnClickListener(new View.OnClickListener() {
+           layoutMiscellaneous.findViewById(R.id.layoutDeleteNote).setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
-                   // BottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                 //   BottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                   bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     showdeleteDialog();
                }
            });
@@ -336,7 +337,7 @@ public class CreateNote extends AppCompatActivity {
 
     //show dialog delete
     private void showdeleteDialog(){
-        if(dialogDeleteNote != null){
+        if(dialogDeleteNote == null){
             AlertDialog.Builder builder=new AlertDialog.Builder(CreateNote.this);
             View view = LayoutInflater.from(this).inflate(
                     R.layout.layout_deletenote,
